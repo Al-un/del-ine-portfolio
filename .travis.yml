@@ -23,7 +23,7 @@ deploy:
   # Surge configuration
   provider: surge
   project: ./build
-  domain: del-ine.surge.sh
+  domain: https://del-ine.surge.sh
   # Travis configuration
   skip-cleanup: true
   on:
