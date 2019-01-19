@@ -1,0 +1,41 @@
+/* Responsive, mobile first */
+
+// breakpoints, in pixels
+@mixin gt-lg {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin gt-md {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+/* Mixins */
+
+// https://responsivedesign.is/articles/helpful-sass-mixins/
+// https://github.com/thesedays/scss-mixins/blob/master/css3-transitions.scss
+@mixin transition($property: all, $duration: 0.3s, $easing: ease-in-out) {
+    // -webkit-transition: $what $time $how;
+    // -moz-transition: $what $time $how;
+    // -ms-transition: $what $time $how;
+    // -o-transition: $what $time $how;
+    // transition: $what $time $how;
+    -webkit-transition-property: $property;
+    -moz-transition-property: $property;
+    -o-transition-property: $property;
+    -ms-transition-property: $property;
+    transition-property: $property;
+    -webkit-transition-duration: $duration;
+    -moz-transition-duration: $duration;
+    -o-transition-duration: $duration;
+    -ms-transition-duration: $duration;
+    transition-duration: $duration;
+    -webkit-transition-timing-function: $easing;
+    -moz-transition-timing-function: $easing;
+    -o-transition-timing-function: $easing;
+    -ms-transition-timing-function: $easing;
+    transition-timing-function: $easing;
+}

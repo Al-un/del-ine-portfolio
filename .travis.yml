@@ -1,0 +1,40 @@
+language: node
+node_js:
+  - node
+cache:
+  directories:
+    - node_modules
+
+env:
+  global:
+    # SURGE_LOGIN
+    - secure: 'ltQWuEFBppgc/Qni/SMPTts46z50keZfIF0k1iqFBlo5zaQMrC7qFntBkh8oj+esXjZZJGMs9abk19dcBWv/p9rpnvRzybaJk+FxX5FRez37eBbjvtR6gurOBqy81azXHzPPAp4IJaSAHepf2FdHJuIdw0z3DblPyemV4ynhio4nYwd6YIfwkfr2zt8G9AaLWmDDh1P0TKbQFJNy22Ec/1Om5Zy5481XIGIC47lFP7Tl6vzxU9+gsTUun7Gp3Lanm6vNAp/NykueDYKlFvLDT9UduhLJ/oLDNWOq/iggXgi5HmaiJV7J5zZf0HQtk6swlxU5rYBCPwzQV0tT/iSCerCU6YExt8D/DpMixu+x4fSAygQge1Bg07/nJ6uT3wNafIgcXarvotVNp7IF25gu/T9hMSZxYnt7/CWrOu/CXEj7D54XWws/MhGa1hsb/os2+UFOow0NCSiCqvXigo0ur2cszINlr2zX/2k+/TYJm5uOzSJBe+0PX8IMvTt3yDCPje99HF56FNBoApP7WjQ3TwePPowKibBG+ue9FMnHAWPZsZufePBFSKuzIGyOgmhNJQs2Mxv9eY5W2kKr8Lr38YOefxIS90wgNqDhpK9DjYuNPQFPb7RLnbD+25ITInelSdJR231XUZD28cYgI6JzAEG3ejIgek+wo6OiGdhwePM='
+    # SURGE_TOKEN
+    - secure: 'snoj+KSs7z73zML1JYm6t/I4UJ3zL9qk1nX8EUC9O6b946nZO1wFxPjbAonKESXHmPAETbPHV5QHY12S5ejpXVpbN1NKYqXPsXRnz6X+4Ti8MBqyfk8hcbi1TLKMve1V0Cr0tJX3QMgDq8quLWVvLcKcMgw55MG3GNRSw2yYFxLoAozdFEujJlmm8ygtr/EUYYHguKs1w1P0ITnQ8Fp4W4q95+PeuqZBe/BEiLdfnHjNOmVIIq2VFzx6VkAk9AlDu0rw/e+6B5KUcuLxDvys8D9cyswYiYrsQPrsG81tnHWPRZ5bdyn2vomb32tIJTYWKWsrIf0raER2xPJPbxIPmqTv5nVtAdom++4h6FgVeGeC8TUtkEEsvLrzRSWGkg98Y8fUPA3XGu0b7ZB5UPVY4fF5notaDYRJgWBb0fELoru/zaKbp6S/jag2bZYr9oMTTslYXGC1XHqyeLHlvC0CXMbQABLv8u+GZ/jKG5gK9zHsCjENG3lo2RdMB4p/oyBEmy4RPrkplbpbCCT6dMp5fxI/N/85NbkQgmqGIfhlodf2r6wDO4PSD9p5aE5wo9yrPnt3Xx3ogG7sD/ZBtdQLIOixY8xPYXn39ASC9fuE0BxBvaNOB6M2Z4EZz0hDgzHA9GXWMJAJK8j7lhpFgUTMQfG6ORGVoOcfju1YLhXsot4='
+
+install:
+  - yarn install
+
+script:
+  - yarn build
+  - ls build/
+
+deploy:
+  # Surge configuration
+  provider: surge
+  project: ./build
+  domain: del-ine.surge.sh
+  # Travis configuration
+  skip-cleanup: true
+  on:
+    branch: master
+
+notifications:
+  # Priority on Slack
+  email: false
+  # Slack notifications
+  slack:
+    rooms:
+      - secure: 'R0SxZ1/qK748T9HbU+Xv9k7L+tY+Xo89Qh085yrIKAGXYmbyZLfSslmtEcCJdelblF1s+BSrKoIjj8VgGxoIGwmKLXy2OCVdrzzAuulW5GDWLN2kHgufbphb9i+lVRN/D6PH5PH8g+rl9ZUbsv34QjQmKLhErXDxD+H8BxYYejeWxUATu4820y2Abl4yYoJ0ffsCKZaVHMigbdfB9LQ4jKjYZ0c4Oolc856k5bGCBDPJx6/nZCAU0xSsaBNOwL8UiE6wX04bnCR25PlAp6TQ0X25ty764fKJhlhrlHbXXPDpg0oxtS17K9XLwbu24+9C83J3KpQJAwRw86mBzfTWN16PGrgWO/QCZ8bpu2QnYGdVC7dH8l2HYyUIuLjzcDOHYbwUKcOb2o93vqHBO/oS4kRHI83qtg/czx2shzciZe7S4uWZn463MVbT4oy3WC9PH3MGyPb7ktuCpOS6rrtP4deTkSO7kWZ8e35OvM9ccaDrgsndNv0n945cTHysdMYMtouI/CjzNC4xWDODNFpHYu4U/k721Zjr8s2h3KfC9ZKvT8vWRWPxVIDvOUbn0wWONRWCqe8MI6BsfssgApEyaTSQfSseZaNIHcoNMOYE5JzRkyJ3rIIs7fubogKdg0Wba34VM+v6eNI8zn5d1yX5g37qQCey+wXbQMiICJOZzDw='
+    on_success: always
+    on_failure: always
