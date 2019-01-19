@@ -24,3 +24,19 @@ cd del-ine-portfolio
 yarn add --dev node-sass
 yarn add react-router-dom
 ```
+
+## Folder structure
+
+- `build/`: output folder of `yarn build`
+- `node_modules/`: dependencies folder
+- `public/`: raw HTML and images
+- `src/`: code source
+  - `components/`: React [_dumb_ components](https://jaketrent.com/post/smart-dumb-components-react/). Should not handle data
+  - `containers/`: usually React [_smart_ components](https://jaketrent.com/post/smart-dumb-components-react/)
+  - `pages/`: the actual pages
+  - `routes/`: router definition
+  - `styles/`: SCSS files. All imported in `index.scss`
+- `.gitignore`: ignored files/folders in git
+- `.travis.yml`: automatic deployment
+- `package.json`: [better give some link](https://nodesource.com/blog/the-basics-of-package-json-in-node-js-and-npm/)
+- `yarn.lock`: dependencies management by yarn
