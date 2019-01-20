@@ -1,7 +1,8 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import portfolio from '../data/portfolio';
 import PropTypes from 'prop-types';
+import ImageWithLoader from '../components/ui/ImageWithLoader';
 
 /**
  * A single portfolio image with its text
@@ -9,16 +10,17 @@ import PropTypes from 'prop-types';
 const PortfolioItem = props => {
   return (
     <div className="grid-item portfolio-item">
-      <NavLink to={'/work/' + props.work.id}>
-        <img
+      <Link to={'/work/' + props.work.id}>
+        <ImageWithLoader
           src={'/assets/img/portfolio/' + props.work.pic}
           alt={props.work.title}
+          title={props.work.title}
         />
         <div className="grid-hover">
           <h1>{props.work.title}</h1>
           <p>{props.work.type}</p>
         </div>
-      </NavLink>
+      </Link>
     </div>
   );
 };

@@ -188,6 +188,7 @@ body {
 .two-columns-container {
     display: flex;
     flex-flow: row wrap;
+    margin-bottom: 50px;
     .two-columns-left {
         width: 100%;
         box-sizing: border-box;

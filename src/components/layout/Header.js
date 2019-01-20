@@ -1,13 +1,12 @@
 // React import
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 // Redux
-import { toggleMenu } from '../../redux/actions';
+import { toggleMenu } from '../../redux/root.ducks';
 
 /**
- * Link menu toggling to store
- * @param {*} dispatch
+ * Link redux actions
  */
 const mapDispatchToProps = dispatch => {
   return {
@@ -23,9 +22,9 @@ const ConnectedHeader = props => {
     <header className="pf-header">
       <div className="pf-header-content">
         <div className="logo">
-          <NavLink to="/">
+          <Link to="/">
             <img src="/assets/img/logo/fishlabs-logo.svg" alt="Fishlabs" />
-          </NavLink>
+          </Link>
         </div>
       </div>
 

@@ -1,10 +1,13 @@
 // React import
 import React from 'react';
-import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 // Redux
-import { closeMenu } from '../../redux/actions';
+import { closeMenu } from '../../redux/root.ducks';
 
+/**
+ * Link redux actions
+ */
 const mapDispatchToProps = dispatch => {
   return {
     closeMenu: () => dispatch(closeMenu())
@@ -22,14 +25,14 @@ const ConnectedFullscreenMenu = props => {
       </NavLink>
       <NavLink
         className="menu-link"
-        onClick={() => this.closeMenu()}
+        onClick={() => props.closeMenu()}
         to="/about"
       >
         on the label
       </NavLink>
       <NavLink
         className="menu-link"
-        onClick={() => this.closeMenu()}
+        onClick={() => props.closeMenu()}
         to="/contact"
       >
         customer service

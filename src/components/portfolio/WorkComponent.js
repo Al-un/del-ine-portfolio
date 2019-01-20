@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ImageWithLoader from '../ui/ImageWithLoader';
 
 /**
  * Display all the photos with a full width
@@ -9,10 +10,9 @@ const FullWidthPhotoGallery = props => {
   return (
     <div>
       {props.photos.map(photo => (
-        <img
-          className="webwork-img"
+        <ImageWithLoader
           src={'/assets/img/single/' + photo}
-          alt="alt todo"
+          alt={photo}
           key={photo}
         />
       ))}
@@ -34,7 +34,7 @@ const PhotoGridGallery = props => {
     <div className="grid-container">
       {props.photos.map(photo => (
         <div className="grid-item" key={photo}>
-          <img src={'/assets/img/single/' + photo} alt="alt todo" />
+          <ImageWithLoader src={'/assets/img/single/' + photo} alt={photo} />
         </div>
       ))}
     </div>
@@ -52,12 +52,19 @@ PhotoGridGallery.propTypes = {
  */
 const WorkComponent = props => {
   const description = Array.isArray(props.work.desc) ? (
-    <p>
-      {props.work.desc.map((text, index) => (
-        <p key={index}>{text}</p>
-      ))}
-    </p>
+    // multiple paragraph text
+    <div>
+      {props.work.desc.map((text, index) => {
+        // workaround...
+        if (text.tag === 'blockquote') {
+          return <blockquote key={index}>{text.text}</blockquote>;
+        }
+
+        return <p key={index}>{text}</p>;
+      })}
+    </div>
   ) : (
+    // a simple text
     <p>{props.work.desc}</p>
   );
 

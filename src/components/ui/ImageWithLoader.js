@@ -4,21 +4,32 @@ import PropTypes from 'prop-types';
 export default class ImageWithLoader extends React.Component {
   constructor(props) {
     super(props);
-    console.log(
-      new Date().toISOString() + ' photo ' + props.src + ' start load'
-    );
+    this.state = {
+      imageStatus: 'loading'
+    };
   }
 
-  componentDidMount() {
-    console.log(
-      new Date().toISOString() + ' photo ' + this.props.src + ' finished'
-    );
+  handleImageLoaded() {
+    this.setState({ imageStatus: 'loaded' });
+  }
+
+  handleImageErrored() {
+    this.setState({ imageStatus: 'failed' });
   }
 
   render() {
+    const isLoading = this.state.imageStatus === 'loading';
+
     return (
       <div>
-        <img src={this.props.src} alt={this.props.alt} />
+        {isLoading && <div>Loading...</div>}
+        <img
+          src={this.props.src}
+          alt={this.props.alt}
+          title={this.props.title}
+          onLoad={() => this.handleImageLoaded()}
+          onError={() => this.handleImageErrored()}
+        />
       </div>
     );
   }

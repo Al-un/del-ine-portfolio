@@ -5,7 +5,7 @@ import { Router } from 'react-router-dom';
 // Redux (store)
 import store from './redux/configureStore';
 // Portfolio imports
-import history from './routes/history';
+import history from "./routes/history";
 import Layout from './components/layout/Layout';
 
 /**

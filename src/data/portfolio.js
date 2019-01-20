@@ -353,7 +353,11 @@ const portfolio = [
     id: 'india',
     desc: [
       'My trip in India for three months from the South to the North, caring both my analog and digital camera all the way. Here are some of my favorite shots and a quote that makes a lot of sense now.',
-      '<blockquote>"Take trains by yourself to places you have never been. Sleep out alone under the stars. Learn how to drive a stick shift. Go so far away that you stop being afraid of not coming back.", Eve Ensler.</blockquote>'
+      {
+        text:
+          '"Take trains by yourself to places you have never been. Sleep out alone under the stars. Learn how to drive a stick shift. Go so far away that you stop being afraid of not coming back.", Eve Ensler.',
+        tag: 'blockquote'
+      }
     ],
     photos_grid: true,
     photos: [
