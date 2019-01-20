@@ -1,6 +1,9 @@
 // React imports
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
+// Redux (store)
+import store from './redux/configureStore';
 // Portfolio imports
 import history from './routes/history';
 import Layout from './components/layout/Layout';
@@ -11,9 +14,11 @@ import Layout from './components/layout/Layout';
 class App extends Component {
   render() {
     return (
-      <Router history={history}>
-        <Layout />
-      </Router>
+      <Provider store={store}>
+        <Router history={history}>
+          <Layout />
+        </Router>
+      </Provider>
     );
   }
 }
