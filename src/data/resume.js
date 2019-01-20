@@ -1,3 +1,6 @@
+/**
+ * list of work experiences
+ */
 const works = [
   {
     duration: 'Sep 2014 – August 2018',
@@ -52,6 +55,9 @@ const works = [
     ]
   }
 ];
+/**
+ * List of skils + background and stuff
+ */
 const skills = [
   {
     title: 'background',

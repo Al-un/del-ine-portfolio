@@ -2,7 +2,7 @@ import React from 'react';
 
 /**
  * Portfolio footer
- * @param {*} props
+ * @param {*} props props are ignored for footer
  */
 const Footer = _props => {
   return (

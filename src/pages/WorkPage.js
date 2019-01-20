@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import portfolio from '../data/portfolio';
-import WebWorkComponent from '../components/work/WebWorkComponent';
-import PhotoWorkComponent from '../components/work/PhotoWorkComponent';
+import WorkComponent from '../components/portfolio/WorkComponent';
 
 /**
  * Display a work.
@@ -31,11 +30,7 @@ export default class WorkPage extends Component {
   render() {
     return this.state.work ? (
       <div className="pf-page work-page">
-        {this.state.work.type.includes('photography') ? (
-          <PhotoWorkComponent work={this.state.work} />
-        ) : (
-          <WebWorkComponent work={this.state.work} />
-        )}
+        <WorkComponent work={this.state.work} />
       </div>
     ) : (
       <div className="pf-page">

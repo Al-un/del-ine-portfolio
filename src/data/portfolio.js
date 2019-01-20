@@ -5,6 +5,7 @@ const portfolio = [
     pic: 'trip.jpg',
     id: 'trip',
     desc: 'Latest travel from Hong Kong back to Paris over land. Sept/Oct 2018',
+    photos_grid: true,
     photos: [
       '/trip/trip-01.jpg',
       '/trip/trip-02.jpg',
@@ -354,6 +355,7 @@ const portfolio = [
       'My trip in India for three months from the South to the North, caring both my analog and digital camera all the way. Here are some of my favorite shots and a quote that makes a lot of sense now.',
       '<blockquote>"Take trains by yourself to places you have never been. Sleep out alone under the stars. Learn how to drive a stick shift. Go so far away that you stop being afraid of not coming back.", Eve Ensler.</blockquote>'
     ],
+    photos_grid: true,
     photos: [
       '/india/india-1.jpg',
       '/india/india-2.jpg',
@@ -413,6 +415,7 @@ const portfolio = [
     pic: 'hongkong.jpg',
     id: 'hongkong',
     desc: 'Daily life (2014-2018) shots taken with my phone.',
+    photos_grid: true,
     photos: [
       '/hongkong/hongkong-01.jpg',
       '/hongkong/hongkong-02.jpg',
@@ -445,6 +448,7 @@ const portfolio = [
     pic: 'sketch.jpg',
     id: 'sketch',
     desc: 'a mix of traveling sketches and everyday life.',
+    photos_grid: true,
     photos: [
       '/sketchbook/sketch-1.jpg',
       '/sketchbook/sketch-2.jpg',
